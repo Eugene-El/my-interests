@@ -1,0 +1,94 @@
+:root,
+:root.sleekAndFuturistic {
+    --bg: #2C3531;
+    --alter-bg: #116466;
+    --dark-accent: #D9B08C;
+    --light-accent: #FFCB9A;
+    --fg: #D1E8E2;
+}
+:root.cleanAndModern {
+    --bg: #3AAFA9;
+    --alter-bg: #2B7A78;
+    --dark-accent: #DEF2F1;
+    --light-accent: #FEFFFF;
+    --fg: #17252A;
+}
+:root.accentThatPop {
+    --bg: #2D283E;
+    --alter-bg: #802BB1;
+    --dark-accent: #4C495D;
+    --light-accent: #564F6F;
+    --fg: #D1D7E0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--bg);
+}
+
+#landingPage {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+.logo {
+    padding: 1em 0;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    user-select: none;
+}
+.logo svg {
+    stroke: var(--fg);
+    stroke-width: 0.25mm;
+    fill: transparent;
+    
+    stroke-dasharray: 460;
+    stroke-dashoffset: 460;
+    animation: dash 4s 1s linear forwards;
+}
+@keyframes dash {
+    85% {
+        stroke-dashoffset: 0;
+        fill: transparent;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: var(--fg);
+    }
+}
+  
+
+.dbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    margin: 1em;
+}
+.dbs .db{
+    padding: 4em 2em;
+    border-radius: 1em;
+    font-weight: bold;
+
+    background-color: var(--alter-bg);
+    color: var(--fg);
+}
+.addNewDb {
+    padding: 1em 0;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+
+    background-color: var(--bg);
+}
+.addNewDb button {
+    border: none;
+    padding: 1em;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+
+    color: var(--light-accent);
+}

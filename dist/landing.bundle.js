@@ -10,23 +10,23 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/main.ts":
-/*!*********************!*\
-  !*** ./src/main.ts ***!
-  \*********************/
+/***/ "./src/landing.ts":
+/*!************************!*\
+  !*** ./src/landing.ts ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _main2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main2 */ \"./src/main2.ts\");\n\r\nconsole.log(new _main2__WEBPACK_IMPORTED_MODULE_0__.Test(\"42\"));\r\n\n\n//# sourceURL=webpack://my-interests/./src/main.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_themes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/themes */ \"./src/lib/themes.ts\");\n\r\n(0,_lib_themes__WEBPACK_IMPORTED_MODULE_0__.loadThemeSelector)();\r\n\n\n//# sourceURL=webpack://my-interests/./src/landing.ts?");
 
 /***/ }),
 
-/***/ "./src/main2.ts":
-/*!**********************!*\
-  !*** ./src/main2.ts ***!
-  \**********************/
+/***/ "./src/lib/themes.ts":
+/*!***************************!*\
+  !*** ./src/lib/themes.ts ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Test\": () => (/* binding */ Test)\n/* harmony export */ });\nvar Test = /** @class */ (function () {\r\n    function Test(name) {\r\n        this.name = name;\r\n    }\r\n    return Test;\r\n}());\r\n\r\n\n\n//# sourceURL=webpack://my-interests/./src/main2.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"loadThemeSelector\": () => (/* binding */ loadThemeSelector)\n/* harmony export */ });\nfunction loadThemeSelector() {\r\n    var themeName = localStorage.getItem(\"theme\");\r\n    if (themeName)\r\n        document.documentElement.className = themeName;\r\n    var themeSelector = document.createElement(\"div\");\r\n    themeSelector.style.position = \"fixed\";\r\n    themeSelector.style.top = \"1em\";\r\n    themeSelector.style.right = \"1em\";\r\n    themeSelector.style.display = \"flex\";\r\n    themeSelector.style.gap = \"1em\";\r\n    [\r\n        { name: \"sleekAndFuturistic\", color1: \"#D9B08C\", color2: \"#FFCB9A\" },\r\n        { name: \"cleanAndModern\", color1: \"#DEF2F1\", color2: \"#FEFFFF\" },\r\n        { name: \"accentThatPop\", color1: \"#4C495D\", color2: \"#564F6F\" }\r\n    ].forEach(function (theme) {\r\n        var themeElement = document.createElement(\"div\");\r\n        themeElement.style.borderRadius = \"50%\";\r\n        themeElement.style.cursor = \"pointer\";\r\n        themeElement.style.width = \"2em\";\r\n        themeElement.style.height = \"2em\";\r\n        themeElement.style.borderWidth = \"2px\";\r\n        themeElement.style.backgroundColor = theme.color1;\r\n        themeElement.style.borderColor = theme.color2;\r\n        themeElement.addEventListener(\"click\", function () {\r\n            document.documentElement.className = theme.name;\r\n            localStorage.setItem(\"theme\", theme.name);\r\n        });\r\n        themeSelector.appendChild(themeElement);\r\n    });\r\n    document.body.appendChild(themeSelector);\r\n}\r\n\n\n//# sourceURL=webpack://my-interests/./src/lib/themes.ts?");
 
 /***/ })
 
@@ -90,7 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/main.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/landing.ts");
 /******/ 	
 /******/ })()
 ;
