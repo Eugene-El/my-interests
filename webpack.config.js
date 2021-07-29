@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   entry: {
     landing: './src/landing.ts',
-    createNewDb: './src/createNewDb.ts'
+    createNewDb: './src/createNewDb.ts',
+    404: './src/404.ts'
   },
   mode: 'development',
   module: {
@@ -16,7 +17,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts'],
   },
   output: {
     filename: '[name].bundle.js',

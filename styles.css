@@ -5,6 +5,10 @@
     --dark-accent: #D9B08C;
     --light-accent: #FFCB9A;
     --fg: #D1E8E2;
+
+    --header-font: "RussoOne";
+    --common-font: "IstokWeb";
+
 }
 :root.cleanAndModern {
     --bg: #3AAFA9;
@@ -21,11 +25,70 @@
     --fg: #D1D7E0;
 }
 
+@font-face {
+    font-family: "IstokWeb";
+    src: url("fonts/IstokWeb-Regular.ttf");
+}
+@font-face {
+    font-family: "RussoOne";
+    src: url("fonts/RussoOne-Regular.ttf");
+}
+
 html, body {
     margin: 0;
     padding: 0;
 
     background-color: var(--bg);
+}
+
+* {
+    font-family: var(--common-font);
+    color: var(--fg);
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+    font-weight: initial;
+}
+
+a {
+    display: inline-block;
+    padding: 0.8em 3em;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+
+    color: var(--light-accent);
+}
+a:hover {
+    text-shadow: 0 0 16px var(--dark-accent);
+}
+a svg.linkDecoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: var(--light-accent);
+    stroke-width: 0.2em;
+
+    transition: stroke-dasharray 1s, stroke-dashoffset 1s;
+}
+::-webkit-scrollbar {
+    width: 0.8em;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--light-accent);
+    border-radius: 1em;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark-accent);
 }
 
 #landingPage {
@@ -34,11 +97,13 @@ html, body {
     grid-template-rows: auto 1fr auto;
 }
 .logo {
-    padding: 1em 0;
+    padding: 1.4em 0 1em 0;
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
     user-select: none;
+    
+    background-color: var(--bg);
+    position: sticky;
+    top: 0;
 }
 .logo svg {
     stroke: var(--fg);
@@ -47,10 +112,10 @@ html, body {
     
     stroke-dasharray: 460;
     stroke-dashoffset: 460;
-    animation: dash 4s 1s linear forwards;
+    animation: dash 3s 0.4s linear forwards;
 }
 @keyframes dash {
-    85% {
+    90% {
         stroke-dashoffset: 0;
         fill: transparent;
     }
@@ -68,7 +133,7 @@ html, body {
     margin: 1em;
 }
 .dbs .db{
-    padding: 4em 2em;
+    padding: 2em;
     border-radius: 1em;
     font-weight: bold;
 
@@ -76,19 +141,21 @@ html, body {
     color: var(--fg);
 }
 .addNewDb {
-    padding: 1em 0;
+    padding: 0.4em 0;
     text-align: center;
     position: sticky;
     bottom: 0;
 
     background-color: var(--bg);
 }
-.addNewDb button {
-    border: none;
-    padding: 1em;
-    background-color: transparent;
-    cursor: pointer;
-    font-weight: bold;
+.addNewDb a {
+    margin: 1em;
+}
 
-    color: var(--light-accent);
+#pageNotFound {
+    min-height: 100vh;
+    padding: 3em;
+}
+#pageNotFound h1 {
+    border-bottom: 0.1em solid var(--fg);
 }
