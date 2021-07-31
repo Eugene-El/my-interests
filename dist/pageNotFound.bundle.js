@@ -10,23 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/404.ts":
-/*!********************!*\
-  !*** ./src/404.ts ***!
-  \********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_runOnEveryPage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/runOnEveryPage */ \"./src/lib/runOnEveryPage.ts\");\n\r\n(0,_lib_runOnEveryPage__WEBPACK_IMPORTED_MODULE_0__.runOnEveryPage)();\r\n\n\n//# sourceURL=webpack://my-interests/./src/404.ts?");
-
-/***/ }),
-
 /***/ "./src/lib/linksDecoration.ts":
 /*!************************************!*\
   !*** ./src/lib/linksDecoration.ts ***!
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"decoreateAllLinksOnContentLoaded\": () => (/* binding */ decoreateAllLinksOnContentLoaded),\n/* harmony export */   \"decoreateAllLinks\": () => (/* binding */ decoreateAllLinks),\n/* harmony export */   \"decorateLink\": () => (/* binding */ decorateLink)\n/* harmony export */ });\nfunction decoreateAllLinksOnContentLoaded() {\r\n    document.addEventListener(\"DOMContentLoaded\", decoreateAllLinks);\r\n}\r\nfunction decoreateAllLinks() {\r\n    var links = Array.from(document.getElementsByTagName(\"a\"));\r\n    for (var _i = 0, links_1 = links; _i < links_1.length; _i++) {\r\n        var link = links_1[_i];\r\n        decorateLink(link);\r\n    }\r\n}\r\nfunction decorateLink(link) {\r\n    var width = link.clientWidth;\r\n    var height = link.clientHeight;\r\n    var xmlns = \"http://www.w3.org/2000/svg\";\r\n    if (link.querySelector(\"svg.linkDecoration\"))\r\n        return;\r\n    console.log(\"link\", link, width, height);\r\n    var svg = document.createElementNS(xmlns, \"svg\");\r\n    svg.setAttribute(\"viewBox\", \"0 0 \" + width + \" \" + height);\r\n    svg.setAttribute(\"xmlns\", xmlns);\r\n    svg.classList.add(\"linkDecoration\");\r\n    svg.style.strokeDasharray = width + \" \" + (width * 2 + height);\r\n    svg.style.strokeDashoffset = \"\" + -height;\r\n    var path = document.createElementNS(xmlns, \"path\");\r\n    path.setAttribute(\"d\", \"M 0 0 L 0 \" + height + \" L \" + width + \" \" + height + \" L \" + width + \" 0 Z\");\r\n    link.addEventListener(\"mouseenter\", function () {\r\n        svg.style.strokeDasharray = \"\" + (width * 2 + height * 3);\r\n        svg.style.strokeDashoffset = \"\" + (-width * 4 - height * 5);\r\n    });\r\n    link.addEventListener(\"mouseleave\", function () {\r\n        svg.style.strokeDasharray = width + \" \" + (width * 2 + height);\r\n        svg.style.strokeDashoffset = \"\" + -height;\r\n    });\r\n    svg.appendChild(path);\r\n    link.appendChild(svg);\r\n}\r\n\n\n//# sourceURL=webpack://my-interests/./src/lib/linksDecoration.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"decoreateAllLinksOnContentLoaded\": () => (/* binding */ decoreateAllLinksOnContentLoaded),\n/* harmony export */   \"decoreateAllLinks\": () => (/* binding */ decoreateAllLinks),\n/* harmony export */   \"decorateLink\": () => (/* binding */ decorateLink)\n/* harmony export */ });\nfunction decoreateAllLinksOnContentLoaded() {\r\n    // document.addEventListener(\"DOMContentLoaded\", decoreateAllLinks);\r\n    window.addEventListener(\"load\", decoreateAllLinks);\r\n}\r\nfunction decoreateAllLinks() {\r\n    var links = Array.from(document.getElementsByTagName(\"a\"));\r\n    for (var _i = 0, links_1 = links; _i < links_1.length; _i++) {\r\n        var link = links_1[_i];\r\n        decorateLink(link);\r\n    }\r\n}\r\nfunction decorateLink(link) {\r\n    if (!link)\r\n        return;\r\n    var rect = link.getBoundingClientRect();\r\n    var width = rect.width;\r\n    var height = rect.height;\r\n    var xmlns = \"http://www.w3.org/2000/svg\";\r\n    if (link.querySelector(\"svg.linkDecoration\"))\r\n        return;\r\n    var svg = document.createElementNS(xmlns, \"svg\");\r\n    svg.setAttribute(\"viewBox\", \"0 0 \" + width + \" \" + height);\r\n    svg.setAttribute(\"xmlns\", xmlns);\r\n    svg.classList.add(\"linkDecoration\");\r\n    svg.style.strokeDasharray = width + \" \" + (width * 2 + height);\r\n    svg.style.strokeDashoffset = \"\" + -height;\r\n    var path = document.createElementNS(xmlns, \"path\");\r\n    path.setAttribute(\"d\", \"M 0 0 L 0 \" + height + \" L \" + width + \" \" + height + \" L \" + width + \" 0 Z\");\r\n    link.addEventListener(\"mouseenter\", function () {\r\n        svg.style.strokeDasharray = \"\" + (width * 2 + height * 3);\r\n        svg.style.strokeDashoffset = \"\" + (-width * 4 - height * 5);\r\n    });\r\n    link.addEventListener(\"mouseleave\", function () {\r\n        svg.style.strokeDasharray = width + \" \" + (width * 2 + height);\r\n        svg.style.strokeDashoffset = \"\" + -height;\r\n    });\r\n    svg.appendChild(path);\r\n    link.appendChild(svg);\r\n}\r\n\n\n//# sourceURL=webpack://my-interests/./src/lib/linksDecoration.ts?");
 
 /***/ }),
 
@@ -47,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"loadThemeSelector\": () => (/* binding */ loadThemeSelector)\n/* harmony export */ });\nfunction loadThemeSelector() {\r\n    var themeName = localStorage.getItem(\"theme\");\r\n    if (themeName)\r\n        document.documentElement.className = themeName;\r\n    var themeSelector = document.createElement(\"div\");\r\n    themeSelector.style.position = \"fixed\";\r\n    themeSelector.style.top = \"1em\";\r\n    themeSelector.style.right = \"1em\";\r\n    themeSelector.style.display = \"flex\";\r\n    themeSelector.style.gap = \"1em\";\r\n    [\r\n        { name: \"sleekAndFuturistic\", color1: \"#D9B08C\", color2: \"#FFCB9A\" },\r\n        { name: \"cleanAndModern\", color1: \"#DEF2F1\", color2: \"#FEFFFF\" },\r\n        { name: \"accentThatPop\", color1: \"#4C495D\", color2: \"#564F6F\" }\r\n    ].forEach(function (theme) {\r\n        var themeElement = document.createElement(\"div\");\r\n        themeElement.style.borderRadius = \"50%\";\r\n        themeElement.style.cursor = \"pointer\";\r\n        themeElement.style.width = \"2em\";\r\n        themeElement.style.height = \"2em\";\r\n        themeElement.style.borderWidth = \"2px\";\r\n        themeElement.style.backgroundColor = theme.color1;\r\n        themeElement.style.borderColor = theme.color2;\r\n        themeElement.addEventListener(\"click\", function () {\r\n            document.documentElement.className = theme.name;\r\n            localStorage.setItem(\"theme\", theme.name);\r\n        });\r\n        themeSelector.appendChild(themeElement);\r\n    });\r\n    document.body.appendChild(themeSelector);\r\n}\r\n\n\n//# sourceURL=webpack://my-interests/./src/lib/themes.ts?");
+
+/***/ }),
+
+/***/ "./src/pageNotFound.ts":
+/*!*****************************!*\
+  !*** ./src/pageNotFound.ts ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _lib_runOnEveryPage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/runOnEveryPage */ \"./src/lib/runOnEveryPage.ts\");\n\r\n(0,_lib_runOnEveryPage__WEBPACK_IMPORTED_MODULE_0__.runOnEveryPage)();\r\n\n\n//# sourceURL=webpack://my-interests/./src/pageNotFound.ts?");
 
 /***/ })
 
@@ -110,7 +110,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/404.ts");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/pageNotFound.ts");
 /******/ 	
 /******/ })()
 ;

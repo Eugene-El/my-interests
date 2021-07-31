@@ -1,6 +1,7 @@
 export function decoreateAllLinksOnContentLoaded()
 {
-    document.addEventListener("DOMContentLoaded", decoreateAllLinks);
+    // document.addEventListener("DOMContentLoaded", decoreateAllLinks);
+    window.addEventListener("load", decoreateAllLinks);
 }
 
 export function decoreateAllLinks()
@@ -13,14 +14,16 @@ export function decoreateAllLinks()
 
 export function decorateLink(link: HTMLAnchorElement)
 {
-    const width = link.clientWidth;
-    const height = link.clientHeight;
+    if (!link)
+        return;
+
+    const rect = link.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
     const xmlns = "http://www.w3.org/2000/svg";
 
     if (link.querySelector("svg.linkDecoration"))
         return;
-
-    console.log("link", link, width, height);
 
     const svg = document.createElementNS(xmlns, "svg");
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);

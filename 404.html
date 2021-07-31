@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>My interests</title>
+    <script>
+        const subSiteName = "my-interests";
+        const link = "/pages/pageNotFound.html";
+        location.href = location.href.split(subSiteName)[0] + subSiteName + link;
+    </script>
 </head>
 <body>
-    <div id="pageNotFound">
-        <h1>#404 - Not found</h1>
-        <p>Work in progress</p>
-        <a href="index.html">Go to main page >></a>
-    </div>
-    
-    <script src="dist/404.bundle.js"></script>
 </body>
 </html>

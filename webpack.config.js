@@ -4,7 +4,7 @@ module.exports = {
   entry: {
     landing: './src/landing.ts',
     createNewDb: './src/createNewDb.ts',
-    404: './src/404.ts'
+    pageNotFound: './src/pageNotFound.ts'
   },
   mode: 'development',
   module: {
@@ -17,7 +17,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts'],
+    extensions: ['.ts'],
   },
   output: {
     filename: '[name].bundle.js',
